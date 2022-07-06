@@ -1,11 +1,6 @@
-name: .NET
+name: DemoScrumDay2022 CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+on: [push]  
 jobs:
   build:
 
@@ -23,3 +18,11 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+  

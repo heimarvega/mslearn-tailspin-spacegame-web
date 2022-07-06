@@ -45,6 +45,8 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'DemosDevOps2022_Space-Game---web'
     projectName: 'Space Game - web'
+    extraProperties: sonar.exclusions=**/wwwroot/**
+    
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:

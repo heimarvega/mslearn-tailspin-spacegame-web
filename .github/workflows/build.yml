@@ -1,7 +1,9 @@
-name: Build
+name: Build ScrumDay2022
 
-on:
+on:  
   push:
+    branches:
+      - main
   pull_request:
     branches: [ main ]
     types: [opened, synchronize, reopened]

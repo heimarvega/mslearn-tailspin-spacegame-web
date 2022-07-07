@@ -58,3 +58,8 @@ jobs:
         run: dotnet test --verbosity normal    
       - name: Publish
         run: dotnet publish Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj -c -Release -o release --nologo
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Application_Artifact
+          path: D:\a\mslearn-tailspin-spacegame-web\mslearn-tailspin-spacegame-web\release\       

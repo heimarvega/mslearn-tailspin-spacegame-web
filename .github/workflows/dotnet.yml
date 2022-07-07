@@ -38,7 +38,14 @@ jobs:
         # The name of the SonarQube project
         sonarProjectName:  mslearn-tailspin-spacegame-web
         # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
-        sonarOrganization: heimarvega-github  
+        sonarOrganization: heimarvega-github
+         # Optional command arguments to dotnet build
+        dotnetBuildArguments: ./mslearn-tailspin-spacegame-web
+        # Optional command arguments to dotnet test
+        dotnetTestArguments: ./mslearn-tailspin-spacegame-web --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        # Optional extra command arguments the the SonarScanner 'begin' command
+        sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"     
+
     - name: Publish
       run: dotnet publish Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj -c -Release -o release --nologo
     - name: Upload Build Artifact

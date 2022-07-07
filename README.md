@@ -2,6 +2,10 @@
 
 [![DemoScrumDay2022 CI](https://github.com/heimarvega/mslearn-tailspin-spacegame-web/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/heimarvega/mslearn-tailspin-spacegame-web/actions/workflows/dotnet.yml)
 
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=heimarvega_mslearn-tailspin-spacegame-web&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=heimarvega_mslearn-tailspin-spacegame-web)
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=heimarvega_mslearn-tailspin-spacegame-web)](https://sonarcloud.io/summary/new_code?id=heimarvega_mslearn-tailspin-spacegame-web)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

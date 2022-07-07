@@ -40,10 +40,10 @@ jobs:
         # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
         sonarOrganization: heimarvega-github
          # Optional command arguments to dotnet build
-        dotnetBuildArguments: ./mslearn-tailspin-spacegame-web
+        dotnetBuildArguments: ./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
         # Optional command arguments to dotnet test
-        dotnetTestArguments: ./mslearn-tailspin-spacegame-web --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
-        # Optional extra command arguments the the SonarScanner 'begin' command
+        dotnetTestArguments: ./Tailspin.SpaceGame.Web.Tests/Tailspin.SpaceGame.Web.Tests.csproj --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        # Optional extra command arguments the the SonarSc./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csprojanner 'begin' command
         sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"     
 
     - name: Publish

@@ -20,6 +20,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
@@ -30,11 +33,6 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: SonarScanner for .NET 6 with pull request decoration support
-    - uses: actions/checkout@v2
-      with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:

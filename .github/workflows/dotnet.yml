@@ -32,13 +32,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      with:
-        args: >
-          -Dsonar.organization=heimarvega-github
-          -Dsonar.projectKey=heimarvega_mslearn-tailspin-spacegame-web    
+      run: dotnet test --no-build --verbosity normal    
     - name: Publish
       run: dotnet publish Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj -c -Release -o release --nologo
     - name: Upload Build Artifact

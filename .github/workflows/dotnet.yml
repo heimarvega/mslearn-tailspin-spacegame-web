@@ -27,4 +27,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal  
+      run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj -c -Release -o release --nologo
+      

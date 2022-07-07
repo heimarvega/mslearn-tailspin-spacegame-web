@@ -34,18 +34,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Application_Artifact
-        path: /home/runner/work/mslearn-tailspin-spacegame-web/mslearn-tailspin-spacegame-web/release/
-  Test:
-    needs: build-and-test
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-    - name: Test
-      run: dotnet test --no-build --verbosity normal  
+        path: /home/runner/work/mslearn-tailspin-spacegame-web/mslearn-tailspin-spacegame-web/release/  

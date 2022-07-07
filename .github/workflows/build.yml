@@ -3,8 +3,14 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
   pull_request:
     types: [opened, synchronize, reopened]
+env:
+  DOTNET_VERSION: '6.0.x'
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
   build:
     name: Build
@@ -37,13 +43,13 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"heimarvega_mslearn-tailspin-spacegame-web" /o:"heimarvega-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet restore
-          dotnet build --no-restore --configuration Release --nologo
-          dotnet test --no-build --verbosity normal   
+          dotnet build --no-restore --configuration Release --nologo             
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+      - name: Test
+        run: dotnet test --no-build --verbosity normal    
+      - name: Publish
+        run: dotnet publish Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj -c -Release -o release --nologo

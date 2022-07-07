@@ -1,12 +1,12 @@
 name: Build
+
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - 'README.md'
   pull_request:
+    branches: [ main ]
     types: [opened, synchronize, reopened]
+    paths-ignore:
+    - 'README.md'    
 env:
   DOTNET_VERSION: '6.0.x'
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -3,9 +3,7 @@ name: DemoScrumDay2022 CI
 on:
   push:
   pull_request:
-    branches: [ main ]
-    paths-ignore:
-    - 'README.md'
+    branches: [ main ]    
 env:
   DOTNET_VERSION: '6.0.x'
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

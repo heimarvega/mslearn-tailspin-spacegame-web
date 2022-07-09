@@ -1,4 +1,4 @@
-# Scrum Day 2022 Medellín
+# Scrum Day 2022 Medellín en charla de devOps
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
